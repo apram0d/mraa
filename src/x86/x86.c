@@ -26,6 +26,7 @@
 #include "x86/iei_tank.h"
 #include "x86/intel_adlink_lec_al.h"
 #include "x86/up_xtreme.h"
+#include "x86/intel_nuc_ilk.h"
 
 mraa_platform_t
 mraa_x86_platform()
@@ -82,6 +83,9 @@ mraa_x86_platform()
             } else if (strncasecmp(line, "Intel Learning Kit", strlen("Intel Learning Kit") + 1) == 0) {
                 platform_type = MRAA_INTEL_ILK;
                 plat = mraa_intel_ilk();
+            } else if (strncasecmp(line, "$(NUC01LKN0C400)", strlen("$(NUC01LKN0C400)") + 1) == 0) {
+                platform_type = MRAA_INTEL_NUC_ILK;
+                plat = mraa_intel_nuc_ilk();
             } else if (strncasecmp(line, "UP-CHT01", strlen("UP-CHT01") + 1) == 0) {
                 platform_type = MRAA_UP;
                 plat = mraa_up_board();
